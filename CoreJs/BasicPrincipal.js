@@ -70,3 +70,15 @@ if (test2 == 1 || !test)
 (function name() {
     console.log("Print Something")
 })()//IIFE - Singleton Pattern or A singleton module
+
+//symbol custom 
+
+let MyType = Symbol("MyType");
+let MyType2 = Symbol("MyType");
+
+console.log(MyType2 == MyType)
+
+console.log(MyType);
+console.log(MyType2);
+
+console.log(typeof MyType2);
