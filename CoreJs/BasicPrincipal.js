@@ -19,6 +19,7 @@ student.name = "Student Dixon";
 student.address = "NY, USA";
 student.getAddress = function () {
     console.log(this.address);
+    console.log(this)
 }
 student.getMobile = function () {
     console.log(this.mobile);
