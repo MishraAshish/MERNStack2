@@ -1,84 +1,46 @@
-// case sensitive - var myName and var myame
-
-// var myName = myname = 5;
-// console.log(myName,myname);
-
-// unTyped and dynamic typing
-
-/*
-var unTypedDynamicVal = 250000000000000000000000000;
-console.log(unTypedDynamicVal);
-console.log(typeof unTypedDynamicVal);
-
-unTypedDynamicVal = 2.5;
-console.log(unTypedDynamicVal);
-console.log(typeof unTypedDynamicVal);
-
-unTypedDynamicVal = "Dixon";
-console.log(unTypedDynamicVal);
-console.log(typeof unTypedDynamicVal);
-
-unTypedDynamicVal = undefined;
-console.log(unTypedDynamicVal);
-console.log(typeof unTypedDynamicVal);
-
-unTypedDynamicVal = null;
-console.log(unTypedDynamicVal); //important interview
-console.log(typeof unTypedDynamicVal); // null becomes object type
-
-unTypedDynamicVal = {name: "Menglee", age : 21}; //javascript object
-console.log(unTypedDynamicVal); 
-console.log(typeof unTypedDynamicVal); 
-
-
-unTypedDynamicVal = true;
-console.log(unTypedDynamicVal); 
-console.log(typeof unTypedDynamicVal); 
-*/
-
-// operators : and (&&) , or (||), not (!)
-
-//comment ctrl + k + c , ctl + /
-//uncomment ctrl + k + u, ctl + /
-
-let test = true,
- test2 = false
-
-if (test && test === true ) 
-{
-    console.log("Test Me " + test)
-} 
-
-if (test == 1 || !test)
-{
-    console.log("Test Me Second " + test)
+//object - {}
+let user = {
+    name : "Dixon", 
+    age : 25,
+    getUserName : function () {
+        console.log(this.name);
+    }
 }
 
-if (test === 1 || !test)
-{
-    console.log("Test Me Second " + test)
+user.getUserName();
+user.mobile = "0070070070";
+
+//one way is - we should avoid using this as it keeps prototype copied to the parent
+//let employee = new user() 
+
+// another recommended way of creating object using Object.create
+let student = Object.create(user);
+student.name = "Student Dixon";
+student.address = "NY, USA";
+student.getAddress = function () {
+    console.log(this.address);
+}
+student.getMobile = function () {
+    console.log(this.mobile);
 }
 
-if (test2 == 1 || !test)
-{
-    console.log("Test2 Me Second " + test)
-}
+student.getAddress();
+student.getUserName();
+student.getMobile();
+
+// so to break the prototype chain and we should pass null in constructor
+let studentNull = Object.create(null);
 
 
-//IIFE - Immediatly  Invocabale Function Expression
+//Data Copy : Object.assign to copy the data from one object to another
+let Object1 = {a : "1", b : "2"}
 
-(function name() {
-    console.log("Print Something")
-})()//IIFE - Singleton Pattern or A singleton module
+let Object2 = {b : "2.2", c : "3"}
 
-//symbol custom 
+Object.assign(Object2, Object1);
+console.log(Object2);
 
-let MyType = Symbol("MyType");
-let MyType2 = Symbol("MyType");
+let Object3 = {};
+Object.assign(Object3, Object2, Object1);
 
-console.log(MyType2 == MyType)
-
-console.log(MyType);
-console.log(MyType2);
-
-console.log(typeof MyType2);
+console.log(Object3);
