@@ -23,7 +23,9 @@ student.getAddress = function () {
 student.getMobile = function () {
     console.log(this.mobile);
 }
-
+student.getUserName = function () {
+    console.log(this.name +" "+this.age);
+}
 student.getAddress();
 student.getUserName();
 student.getMobile();
