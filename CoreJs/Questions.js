@@ -1,0 +1,6 @@
+//1. Create and object with name vehical, that contains brand, releaseDate as properties and getManufcaturingDate as its function
+//2. Create another object named "BMW" inheriting vehical and add two new properties to it : price and insurance, also create a function getDetails, which should print brand from Vehicle and price and insurance from "BMW", also execute getManufcaturingDate to read release date from Vehicle
+//3. Give me an example of closure using Employee as parent function takes Name as parameter and have EmployeeID and Salary as other identifiers in it 
+	// this returns EmpDetails as child function which accepts Desgination as parameter, from this function return everything except "Salary" in thi form of JSON.
+//4. Create a function PrintData, which is dynamically able to print values on the basis of context. If i set Employee as context it should print details of employee or if i set context of Student it should print details of student.
+	// Use call and apply to change the context dynamically with Employee and Student object, Properties should be common Like, Name, Age, City and Mobile in both objects
