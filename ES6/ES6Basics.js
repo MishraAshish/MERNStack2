@@ -20,3 +20,20 @@ const specialConst = {name : "Dixon", place: "synergisticit" };
 //specialConst = {}; // not possible
 
 specialConst.name = "Vincent";
+
+//default parameters :
+
+function sum(a = 0, b = 0) { // default parameter
+    return a + b;
+}
+
+function multiply(a = 0, b = 0) {
+    return a * b;
+}
+
+function Calculate(callbk, param1, param2){
+    callbk ? console.log(callbk(param1, param2)) : "";
+}
+
+Calculate(sum, 5, 2);
+Calculate(multiply, 5, 2);
