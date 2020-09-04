@@ -39,3 +39,8 @@ console.log(sumWithRest(...newArr)); //spread to pass into function
 // },0)
 
 // console.log("reduceSum "+ reduceSum)
+
+let myVal = 25;
+
+console.log(`This is template literal ${myVal}`)
+
