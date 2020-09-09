@@ -3,33 +3,52 @@
 //These function expressions are best suited for non-method functions, and they cannot be used as constructors.
 //1. Shorter Syntax : () => {}
 
-let print = () => {console.log("Arrow Function")} 
-let print1 = () => console.log("Arrow Function1")
+// let print = () => {console.log("Arrow Function")} 
+// let print1 = () => console.log("Arrow Function1")
 
-print();
-print1();
+// print();
+// print1();
 
-//2. No scope of its own, "this" is not owned by arrow function, instead it copies the context of its parent
-// eventually it resolves the scope issue
-this.name = "Global Dixon";
+// //2. No scope of its own, "this" is not owned by arrow function, instead it copies the context of its parent
+// // eventually it resolves the scope issue
+// this.name = "Global Dixon";
 
-let user = {
-    name : "Dixon", 
-    age : 25,
-    getUserName : function() {
-        console.log(this.name); //this is reserved key word for scope and context (object)
+// let user = {
+//     name : "Dixon", 
+//     age : 25,
+//     getUserName : function() {
+//         console.log(this.name); //this is reserved key word for scope and context (object)
 
-        // setTimeout(function() {
+//         // setTimeout(function() {
             
-        //     console.log(this.name);
+//         //     console.log(this.name);
 
-        // }.bind(this), 2000);
+//         // }.bind(this), 2000);
 
-        setTimeout(() => {            
-            console.log(this.name);
-            console.log(this.age);
+//         setTimeout(() => {            
+//             console.log(this.name);
+//             console.log(this.age);
+//         }, 2000);
+//     }
+// }
+
+// user.getUserName();
+
+
+
+let Account = {
+    balance : "$25000", 
+    token : 25,
+    printBalance : function() {
+        console.log("Your Normal Balance Is : " + this.balance);
+    },
+    printBalanceAfter2Secnds : () => {
+
+        setTimeout(() => {      
+            console.log("Your Balance Is : " + this.balance);
         }, 2000);
     }
 }
 
-user.getUserName();
+Account.printBalance();
+Account.printBalanceAfter2Secnds();
