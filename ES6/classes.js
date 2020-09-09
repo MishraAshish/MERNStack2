@@ -51,3 +51,7 @@ let Rectangle2 = class Rectangle2
     } 
 }; 
 console.log(Rectangle2.name); // output: "Rectangle2"
+
+
+//create a class which accepts, username, password, and clue
+// a function with name login, checks username and password if okay returns success else returns clue
