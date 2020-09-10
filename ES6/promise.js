@@ -12,3 +12,32 @@
 //Note: A promise is said to be settled if it is either fulfilled or rejected, but not pending.
 //You will also hear the term resolved used with promises — this means that the promise is settled or “locked in” 
 //to match the state of another promise
+
+let promiseObj = new Promise((resolve, reject) => {  
+
+                        setTimeout(function() {   //async callback 
+                            //resolve('Resolved Promise');  
+                            reject({
+                                "status code":400,
+                                "Error":"Not able to give due to lockdown"
+                            });
+                        }, 1000);
+
+                        setTimeout(() => {   //async callback               
+                            resolve({
+                                "status code":200,
+                                "success":"Will Give You Laptop"
+                            });
+                        }, 2000);
+                });
+
+    promiseObj.then((value) => {  
+            console.log(value);  // expected output: "Resolved"
+        }).catch(function(value) {  
+            console.log(value);  // expected output: "Rejected"
+    });
+         
+    console.log(promiseObj);// expected output: [object Promise]
+
+//Create A promise object and : resolve this in 3 secs with a msg : smartly resolved, 
+//and reject the same : couldn't resolved due to lockdown
