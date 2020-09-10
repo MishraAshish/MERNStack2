@@ -32,9 +32,25 @@ let peopleSavedByEach = personsList.reduce((preViousVal, currentVal) => {
     // console.log("currentVal ",currentVal)
 
     preViousVal[currentVal.savedby] = preViousVal[currentVal.savedby] ? preViousVal[currentVal.savedby]+1 : 1;
-    
+
     return preViousVal;
 }, {})
 
 console.log(peopleSavedByEach)
 //console.log("personsList ", personsList);
+
+//0,1,1,2,3,5,8 : Fibnacci
+
+//Practice Questions : 
+let persons = [
+    {id : 1, name : "Allen", tags : "javascript"},
+    {id : 2, name : "Ram", tags : "javascript"},
+    {id : 3, name : "Vennis", tags : "java"},
+    {id : 4, name : "Scott", tags : "javascript"},
+    {id : 5, name : "Alex", tags : "java"}
+];
+
+//1. Name all having tag javascript
+//2. List all objcts having tag java
+//3. Check for any "c-sharp" tag present
+//4. Count the number of people having tag javascript and java
