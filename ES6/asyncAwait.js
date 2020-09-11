@@ -32,3 +32,7 @@ console.log('after async invocation');
 // resolveAfter5Seconds().then((data)=>{
 //     console.log(data)
 // })
+
+
+//create a promise that returns username and useraddress after 10 seconds
+//use async and await to execute this function in a separate thread
