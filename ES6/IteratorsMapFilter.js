@@ -34,7 +34,7 @@ let peopleSavedByEach = personsList.reduce((preViousVal, currentVal) => {
     preViousVal[currentVal.savedby] = preViousVal[currentVal.savedby] ? preViousVal[currentVal.savedby]+1 : 1;
 
     return preViousVal;
-}, {})
+}, new Set())
 
 console.log(peopleSavedByEach)
 //console.log("personsList ", personsList);
