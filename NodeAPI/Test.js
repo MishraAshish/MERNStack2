@@ -15,3 +15,11 @@ console.log("Before Read Sync")
 myData = fs.readFileSync(__dirname+"/FileToRead.js","UTF8");
 console.log("My Data ",myData)
 console.log("After Read Sync")
+
+
+//REPL : Read Evaluate Print and Loop
+//CTRL+C twice
+
+// for (let index = 0; index < 100000; index++) {
+//     console.log("index " + index)
+// }
