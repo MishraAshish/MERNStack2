@@ -23,3 +23,7 @@ console.log("After Read Sync")
 // for (let index = 0; index < 100000; index++) {
 //     console.log("index " + index)
 // }
+
+//YARN
+//NPM
+//Both are cli's - command line interfaces to create our node application
