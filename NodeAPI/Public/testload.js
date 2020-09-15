@@ -1,0 +1,1 @@
+alert("Test Load File is loaded from public folder using express middleware")
