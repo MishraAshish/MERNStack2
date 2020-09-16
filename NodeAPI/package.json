@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/MishraAshish/MERNStack2#readme",
   "dependencies": {
-    "express": "4.17.1"
+    "express": "4.17.1",
+    "mongoose": "5.10.5"
   },
   "devDependencies": {
     "nodemon": "2.0.4"
