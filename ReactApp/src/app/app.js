@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "./CommonComponent/HomeComponent";
 
 export default class App extends React.Component{
     constructor(props, context){
@@ -9,7 +10,9 @@ export default class App extends React.Component{
     render(){
         return(
             <div>
-                <h1>I have loaded my react first page 1 2</h1> 
+                <h1>I have loaded my react first page 1 2 3</h1> 
+                
+                <Home/>
             </div>
         )
     }

@@ -1,4 +1,4 @@
-console.log("Entry point of react application for webpack to start module bundling");
+console.log("Bootstrapping The Application");
 import React from "react";
 import {render} from "react-dom";
 import App, {App2} from "./app/app";

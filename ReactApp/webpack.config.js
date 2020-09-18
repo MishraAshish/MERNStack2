@@ -60,8 +60,8 @@ webpackConfig = {
             path.join(SRC_DIR),
             // and so on...
           ] ,//__dirname+"/dist",
-        hot: true,
-        //inline: false,
+        //hot: true,
+        inline: true,
         host: "localhost", 
         //host: "local.synergiticit.com",
         port:9092,        
@@ -77,10 +77,7 @@ webpackConfig = {
         // To make live-reloading happen even when changes are made
         // to the static html pages in 'contentBase', add 
         // 'watchContentBase'
-        watchContentBase: true,
-        watchOptions:{
-            poll:true
-        }
+        watchContentBase: true
     },
     //devtool: 'source-map',
     //mode: 'production'
