@@ -3,12 +3,13 @@ import React from "react";
 export default class App extends React.Component{
     constructor(props, context){
         super(props, context);
+
     }
 
     render(){
         return(
             <div>
-                <h1>I have loaded my react first page</h1>
+                <h1>I have loaded my react first page 1 2</h1> 
             </div>
         )
     }

@@ -2,7 +2,7 @@ let webpack = require("webpack"),
 path = require("path"),
 DIST_DIR = path.resolve(__dirname,"dist"),
 SRC_DIR = path.resolve(__dirname,"src"),
-//UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
+UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
 
 webpackConfig = {
     //entry
@@ -38,17 +38,17 @@ webpackConfig = {
         ]
     },
 
-    // optimization: {
-    //     minimizer: [
-    //       new UglifyJSPlugin({
-    //         test: /\.js(\?.*)?$/i,
-    //         //include: /\/includes/,
-    //         //exclude: /\/excludes/,
-    //         cache: true,
-    //         sourceMap: true
-    //       }),
-    //     ],
-    // },
+    optimization: {
+        minimizer: [
+          new UglifyJSPlugin({
+            test: /\.js(\?.*)?$/i,
+            //include: /\/includes/,
+            //exclude: /\/excludes/,
+            cache: true,
+            sourceMap: true
+          }),
+        ],
+    },
 
     resolve: {
         extensions: ['.js', '.jsx']
@@ -60,8 +60,8 @@ webpackConfig = {
             path.join(SRC_DIR),
             // and so on...
           ] ,//__dirname+"/dist",
-        //hot: true,
-        inline: false,
+        hot: true,
+        //inline: false,
         host: "localhost", 
         //host: "local.synergiticit.com",
         port:9092,        
@@ -77,7 +77,10 @@ webpackConfig = {
         // To make live-reloading happen even when changes are made
         // to the static html pages in 'contentBase', add 
         // 'watchContentBase'
-        watchContentBase: true
+        watchContentBase: true,
+        watchOptions:{
+            poll:true
+        }
     },
     //devtool: 'source-map',
     //mode: 'production'
