@@ -65,7 +65,7 @@ webpackConfig = {
         host: "localhost", 
         //host: "local.synergiticit.com",
         port:9092,        
-        //https: true,
+        // https: true,
     
         //for supporting history api fallback
         historyApiFallback: { //localhost:9092/home

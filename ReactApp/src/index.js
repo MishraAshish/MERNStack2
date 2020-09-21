@@ -1,5 +1,5 @@
 console.log("Bootstrapping The Application");
-import React from "react";
+import React from "react"; //reactid1 = react
 import {render} from "react-dom";
 import App, {App2} from "./app/app";
 
