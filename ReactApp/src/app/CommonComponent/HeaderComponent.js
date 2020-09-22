@@ -1,7 +1,7 @@
 "use strict";
 import React from "react";
 import {PropTypes} from "prop-types";
-// import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 // import {connect} from "react-redux";
 
 let Header = (props) => {
@@ -14,8 +14,13 @@ let Header = (props) => {
             <div>
                 Hi <b>{userName +" , "+age}</b> Welcome to SynergisticIT Shopping Cart
                 <hr/>
-                {props.children[0]}
-                {props.children[1]}
+                {/* {props.children[0]}
+                {props.children[1]} */}
+                <React.Fragment>
+                    <NavLink to="/home" className="button" activeClassName="success" >Home </NavLink> 
+                    <NavLink to="/user" className="button" activeClassName="success" >User </NavLink> 
+                    <NavLink to="/about" className="button" activeClassName="success">About  </NavLink>
+                </React.Fragment>
             </div>
          </div>
     )

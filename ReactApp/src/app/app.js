@@ -1,9 +1,11 @@
 import React from "react";
 import Home from "./CommonComponent/HomeComponent";
 import Header from "./CommonComponent/HeaderComponent";
+import About from "./CommonComponent/AboutComponent";
 import Footer from "./CommonComponent/FooterComponent";
+import NotFound from "./CommonComponent/NotFoundComponent";
 import "../App.css";
-
+import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";//hashrouter
 
 export default class App extends React.Component{
     constructor(props, context){
@@ -17,14 +19,17 @@ export default class App extends React.Component{
 
     render(){
         return(
-            <div>
-                <Header>
-                    <h1>This is h1 element from header</h1>    
-                    <h1>This is second h1 element from header</h1>    
-                </Header>                
-                <Home />
+            <Router>
+                <Header/>  
+                <Switch>
+                    <Route path="/home" exact component={Home} />
+                    <Route path="/about" exact component={About} />
+                    <Route path="/about/:id" component={About} />
+                    <Route path="/" exact component={Home} />
+                    <Route path="*" component={NotFound} />
+                </Switch>
                 <Footer />
-            </div>
+            </Router>
         )
     }
 

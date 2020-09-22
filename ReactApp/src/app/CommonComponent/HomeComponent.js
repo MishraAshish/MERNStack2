@@ -8,7 +8,8 @@ export default class Home extends Component{
         this.state = {
             iterator : 25,
             name : "Random",
-            age : 91
+            age : 91,
+            address : ""
         }
     }
 
@@ -35,6 +36,16 @@ export default class Home extends Component{
         })
     } 
 
+    onChangeAddress = (evt) =>{
+        let target = evt.target;
+        let valueTyped = target.value;
+        console.log("value Typed ",valueTyped);
+        
+        this.setState({
+            address : valueTyped
+        })
+    }
+
     render(){
         let compName = "Home Component";
         console.log("render method called")
@@ -50,8 +61,14 @@ export default class Home extends Component{
                 
                 <hr/>
                 <input type="text" className="text" onChange={this.onChangeText} value={this.state.name} />
+ 
                 <input type="button" className="button" onClick={this.changeName} value="Change Name" />
                 {this.state.iterator >= 30 ?<b>{this.state.age}</b> : "We do not show hide in react but we re-render"}
+                <hr />
+                <input type="text" className="text" onChange={this.onChangeAddress} value={this.state.address} />
+                {this.state.address}
+                <hr/>
+                <button onClick={()=> this.props.history.push("/about/2500")}>GoTo About Page</button>
             </div>
         )
     }
