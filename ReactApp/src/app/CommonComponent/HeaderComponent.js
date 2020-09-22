@@ -7,6 +7,7 @@ import {PropTypes} from "prop-types";
 let Header = (props) => {
     let userName = props.user ? props.user.userName : "";//reading it from user reducer/ store directly
     let age = props.user ? props.user.age : "";
+    //props.user = {}; //this is not allowed as props are immutable
     //read user from props his name and then create two set of links
     return(
         <div className="col-md-12">
