@@ -1,11 +1,40 @@
 let express = require("express");
 //let router = express.Router({caseSensitive:true});
 let router = express.Router(),
-studentModel = require("./DataModel/StudentDataModel");
+studentModel = require("./DataModel/StudentDataModel"),
+UserModel = require("./DataModel/UserDataModel");
 
-//1. create an api with the name /saveuserdetails, in this from the querystring pass name, address, age and qualification
-//2. Create a data model with name dummy user which has all the mapping of querystring data, name is mandatory field, version needed
-//3. using mongoose save the data into mongodb collectionand also fetch all the saved users to validation
+//user creation with sign in and sign up functionality
+router.post("/api/signInUpUser",(req, res)=>{ //first post call to save the user
+    console.log(req.body); // is passed in ajax call of signInUpUser from react LoginUser click action
+
+    UserModel.findOne({userName: req.body.userName}, (err, userObject) => { //error first callback
+        if (err != null) { //if error occurs at the time of user object search
+            console.log("Error :", err);
+            res.send({"Err":err});
+        } else if (userObject) { //user already exists - sign in
+            res.json(userObject);
+        } else{            
+            let signObjForMongo = new UserModel(req.body); //auto assigns value to
+            
+            // let signObjForMongo = new signInModel({
+            //     userName: req.body.userName,
+            //     password: req.body.password,
+            //     street: req.body.street,
+            //     mobile : req.body.mobile
+            //   });
+
+            signObjForMongo.save((err, data, next)=>{//data : the same user object that saved and contains mongodb id
+                if (err) {
+                    res.send("Error Occurred While Siging User "+ err);
+                } else{     
+                    res.json(data);
+                }
+            });
+        }
+    })
+
+})
 
 //reading student information from query string and saving into database
 router.get("/savestudent",(req, res) =>{

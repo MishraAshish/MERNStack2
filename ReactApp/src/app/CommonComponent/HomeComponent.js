@@ -128,7 +128,7 @@ export default class Home extends Component{
                 <hr/>
                 {/*this is ref element to be accessed directly in code*/}
                 <input type="text" ref={this.textInput} value="learning ref in react"/>  
-                <ChildComponentHome  parentClBk={this.getDataFromChild} />
+                <ChildComponentHome address={this.state.address} parentClBk={this.getDataFromChild} />
                 {this.state.address}
             </div>
         )
