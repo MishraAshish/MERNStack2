@@ -16,5 +16,8 @@ export default createStore(
         user//property shorthand in javascript : same name key and variable that is holding the value then we may not have it like user:user        
     }),
     {},
+    // {user : {user: {
+    //     userName : "Test Me"
+    // }}},
     applyMiddleware(myLogger, thunk, promise)// adding middlewares that we are going to use in our applicatino
 )

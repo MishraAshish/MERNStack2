@@ -7,7 +7,7 @@ import {signInUpUser} from "../../../State/Actions"
 //to subscribe we need to have - mapstatetoprops
 let mapStateToProps = (state)=>{ //we get the whole store object
     return {
-        user : state.user.user
+        user : state.user.user        
     }
 }
 

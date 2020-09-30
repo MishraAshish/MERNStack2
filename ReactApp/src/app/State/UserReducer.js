@@ -22,12 +22,16 @@ export default function userReducer(state=INITIAL_STATE, action) {
         
         case ActionTypes.AddUserToStore:
             console.log("User PayLoad", action.payload.user);
+            //{user: userName:"Ashish", password:"test"}
             //...state = {user:user, loading:false}
+            // let oldState = state;
+            // let newState = { loading:oldState.loading, user: action.payload.user}
+            // return newState;
             //{loading:false, user:newuser (action.payload.user)}
             // out of all the states present in  ...state we pluck out user and create and add a new user object
             //eventually return a complete new state, following the concept of data immutability
 
-            return {...state, user: action.payload.user} //a complete new state
+            return {...state, user: action.payload.user, testState: "Updated State"} //a complete new state
 
         default:
             return state
