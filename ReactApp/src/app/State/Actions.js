@@ -39,3 +39,52 @@ export const signInUpUser = (userObject) => {
         })
     }
 }
+
+//Product Action and Server Call
+export const saveProduct = (product)=>{
+    console.log("Product ", product);
+    return function (dispatch) {
+        //dispatch(loading(true));
+
+        window.fetch("http://localhost:9090/api/saveProduct",{
+            method: 'POST', //rest method type 
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        .then(productresp => productresp.json())
+        .then((productresp)=>{
+            console.log("response ", productresp);
+            //dispatch(loading(false));
+            dispatch(fetchProducts());
+        })
+        .catch((err)=>{
+            console.log("Error While Login", err)
+        })
+    }
+};
+
+//dispatching to product reducer using promise (plain promise)
+export const fetchProducts = () => ({    
+    type : ActionTypes.FETCH_PRODUCTS,
+    payload: {
+            promise: new Promise((resolve, reject) => { 
+                fetch("http://localhost:9090/api/getProducts", {
+                    method: 'GET'
+                }).then(                
+                    response => response.json(),
+                    error => console.log('An error occurred.', error)
+                ).then(responseProducts => {
+                    // want to updatePath for the route here:
+                    //dispatch(updatePath('/'));
+                    resolve(responseProducts)
+                })
+                .catch(error => {
+                    reject(error);
+                    //dispatch(error); -- promise Issue                        
+                })
+            })
+        }       
+});

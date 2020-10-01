@@ -2,7 +2,33 @@ let express = require("express");
 //let router = express.Router({caseSensitive:true});
 let router = express.Router(),
 studentModel = require("./DataModel/StudentDataModel"),
+ProductModel = require("./DataModel/ProductDataModel"),
 UserModel = require("./DataModel/UserDataModel");
+
+//creating product api's to aad and get products
+router.post("/api/saveProduct",(req, res)=>{
+    
+    let productObj = new ProductModel(req.body);
+
+    productObj.save((err, data, next)=>{        
+        if (err) {
+            res.send("Error Occurred"+ err);
+        }      
+        res.json(data);
+    });
+});
+
+router.get("/api/getProducts",(req, res)=>{
+    ProductModel.find((err, data, next) =>{
+        console.log("Data :", err);
+
+        err ? 
+        res.send({"error": err}) 
+        :
+        res.send(data)
+    })
+});
+
 
 //user creation with sign in and sign up functionality
 router.post("/api/signInUpUser",(req, res)=>{ //first post call to save the user
