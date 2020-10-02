@@ -7,7 +7,7 @@ export default function CartReducer(state = INITIAL_STATE, action) {
     switch(action.type) {
         //add item to cart
         case ActionTypes.ADD_ITEM:
-            //...state; //user, coupon, product, cart
+            //...state; in general => //user, coupon, product, cart but here => {item1, item2}
             //add newitem to cart from action.payload
             //action.payload.item -> item
             return [...state, action.payload.item];
