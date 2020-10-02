@@ -32,7 +32,7 @@ export const signInUpUser = (userObject) => {
             dispatch(action); // it will keep the current context to update the user object and takes it to the reducer
             
             //dispatch(loading(false));
-            //dispatch(getUserCart(userresp._id));
+            dispatch(getUserCart(userresp._id));
         })
         .catch((err)=>{
             console.log("Error While Login", err)
@@ -88,3 +88,81 @@ export const fetchProducts = () => ({
             })
         }       
 });
+
+//cart : add, update, delete
+
+export const addItemToCart = (item)=>({
+    type: ActionTypes.ADD_ITEM,
+    payload: {item} //{item:item}
+})
+
+export const emptyTheCart = () => ({
+    type: ActionTypes.EMPTY_CART
+});
+
+export const updateItem = (id, qty) => ({
+    type: ActionTypes.UPDATE_ITEM,
+    payload: {
+        id,
+        qty: parseInt(qty)
+    }
+});
+
+export const removeItem = (id) => ({
+    type: ActionTypes.REMOVE_ITEM,
+    payload: {
+        id
+    }
+});
+
+export const saveItemsForCheckout = (cart, userid) => {
+    console.log("Items To Be Saved", cart); 
+    return function(dispatch) {
+        window.fetch("http://localhost:9090/api/saveUserCart",{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({userid:userid, cart:cart})})
+        .then (response => response.json())
+        .then (usercartresponse => {
+            console.log("response ", usercartresponse);
+            //dispatch(loading(false));
+        })
+        .catch((err)=>{
+            console.log("Error While Saving Cart", err);
+        }) 
+    }
+}
+
+
+export const getUserCart = (userid) => {
+        
+    return function(dispatch) {
+        console.log("Get List Of items");
+        window.fetch("http://localhost:9090/api/getUserCart",{
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({userid:userid})})
+        .then (response => response.json())
+        .then (usercartresponse => {
+            console.log("response - get user cart ", usercartresponse);
+            
+            dispatch(emptyTheCart());
+            
+            for (const item of usercartresponse.cart) {
+                console.log("item in for of", item);
+                let action = addItemToCart(item);
+                dispatch(action);    
+            }                
+                       
+        })
+        .catch((err)=>{
+            console.log("Error While Login", err)
+        })  
+    }       
+}

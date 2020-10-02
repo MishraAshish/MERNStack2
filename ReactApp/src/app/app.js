@@ -7,6 +7,7 @@ import NotFound from "./CommonComponent/NotFoundComponent";
 import User from "./ApplicationComponent/Container/User/UserContainer";
 import Product from "./ApplicationComponent/Container/Product/ProductContainer";
 import DisplayProduct from "./ApplicationComponent/Container/Product/DisplayProductContainer";
+import Cart from "./ApplicationComponent/Container/Cart/CartContainer";
 import "../App.css";
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";//hashrouter
 
@@ -29,6 +30,7 @@ export default class App extends React.Component{
                     <Route path="/user" exact component={User} />
                     <Route path="/product" exact component={Product} />
                     <Route path="/display" exact component={DisplayProduct} />
+                    <Route path="/cart" exact component={Cart} />
                     <Route path="/about" exact component={About} />
                     <Route path="/about/:id" component={About} />
                     <Route path="/" exact component={Home} />

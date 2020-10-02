@@ -3,7 +3,49 @@ let express = require("express");
 let router = express.Router(),
 studentModel = require("./DataModel/StudentDataModel"),
 ProductModel = require("./DataModel/ProductDataModel"),
-UserModel = require("./DataModel/UserDataModel");
+UserModel = require("./DataModel/UserDataModel"),
+CartModel = require("./DataModel/CartDataModel");
+
+//cart api's
+router.post("/api/saveUserCart",(req, res)=>{
+
+    CartModel.findOne({userid: req.body.userid},(err, cartDbObj) => {
+        console.log("We Found One - ",cartDbObj);
+        if (err){
+            console.log("got an error!");            
+            res.send(err);
+        }
+        if (!cartDbObj) { //checks for null cart of given user
+          console.log("No cartitems Present, Adding / Inserting!"); 
+          let cartObj = new CartModel(req.body);
+          cartObj.save((err, data, next)=>{        
+            if (err) {
+                res.send("Error Occurred"+ err);
+            }      
+            res.json(data);
+          });
+        }else{
+          console.log("CartItems Present, Replacing / Updating!");
+          cartDbObj.cart = req.body.cart
+          cartDbObj.save((err, data, next)=>{        
+            if (err) {
+                res.send("Error Occurred"+ err);
+            }      
+            res.json(data);
+          });
+        }
+  });
+});
+
+router.post("/api/getUserCart",(req, res)=>{
+    CartModel.findOne({userid: req.body.userid},(err, cart) => {         
+        if (err) {
+            res.send("Error Occurred"+ err);
+        }      
+        res.json(cart);
+      });
+});
+
 
 //creating product api's to aad and get products
 router.post("/api/saveProduct",(req, res)=>{

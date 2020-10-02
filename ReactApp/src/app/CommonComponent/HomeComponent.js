@@ -112,8 +112,24 @@ export default class Home extends Component{
         let compName = "Home Component";
         console.log("render method called")
         return( //Javascript as xml : JSX > code doesnt needs specific html templates we can use JS Expression
-            <div>
-                <h1>{compName}</h1>
+                <div className={"loadimage"} style={{backgroundImage: "url(./images/hm_pic4.jpg)"}}>
+                    {/* <img src={"./images/hm_pic4.jpg"} /> */}
+                    {this.state.Title}
+                    <br/>
+                    <b className="feature">{"Below Feature's We've Implemented in our project :"}</b>
+                    <ul>                     
+                        <li>Sign up new users</li>
+                        <li>Login existing users.</li>
+                        <li>Add products/items to user's cart.</li>
+                        <li>Save the user's cart.</li>
+                        <li>Checkout and pay for items.</li>
+                    </ul>
+
+                    <button onClick={()=> this.props.history.push("/about/2500")}>GoTo About Page</button>
+                    <br/>
+                    <button onClick={()=> this.props.history.push("/hook")}>GoTo React Hooks</button>
+
+                {/* <h1>{compName}</h1>
                 
                 {this.state.iterator}
                 <hr/>
@@ -126,11 +142,12 @@ export default class Home extends Component{
  
                 <button onClick={()=> this.props.history.push("/about/2500")}>GoTo About Page</button>
                 <hr/>
-                {/*this is ref element to be accessed directly in code*/}
+                //this is ref element to be accessed directly in code
                 <input type="text" ref={this.textInput} value="learning ref in react"/>  
                 <ChildComponentHome address={this.state.address} parentClBk={this.getDataFromChild} />
-                {this.state.address}
+                {this.state.address} */}
             </div>
+                
         )
     }
 }
