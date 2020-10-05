@@ -1,5 +1,6 @@
 import React from "react";
 import DisplayDetailedProduct from "../Product/DisplayDetailedProduct";
+import DisplayDetailsUsingHook from "../Product/DisplayDetailsUsingHook";
 
 export default class DisplayProductsComponent extends React.Component{
 
@@ -26,6 +27,17 @@ export default class DisplayProductsComponent extends React.Component{
                     :
                     <p>No Products to display</p>    
                 }
+                <hr/>
+                <br/>
+                {
+                    products.length >= 1 ?
+                    products.map((product)=>{
+                        return <DisplayDetailsUsingHook product={product} key={product._id}/>;
+                    })
+                    :
+                    <p>No Products to display</p>    
+                }
+                
             </div>
         )
     }
