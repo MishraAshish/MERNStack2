@@ -1,7 +1,7 @@
 "use-strict";
 
 import React from "react";
-import DisplayProducts from "../../Container/Product/DisplayProductContainer";
+import DisplayProducts from "../../Components/Product/DisplayProductComponentHooks";
 
 export default class Product extends React.Component {
     constructor(props, context){
