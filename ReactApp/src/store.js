@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';//make aync call to api
 import user from "./App/State/UserReducer";
 import product from "./App/State/ProductReducer";
 import cart from "./App/State/CartReducer";
+import coupon from "./App/State/CouponReducer";
 
 let myLogger = () => (next) => (action) => {
     console.log("Logged Action : Store File ", action); //currying in javasript where we pass function as input and recieve function as output
@@ -17,7 +18,8 @@ export default createStore(
     { 
         user,//property shorthand in javascript : same name key and variable that is holding the value then we may not have it like user:user        
         product,
-        cart
+        cart,
+        coupon
     }),
     {},
     // {user : {user: {

@@ -8,6 +8,9 @@ import User from "./ApplicationComponent/Container/User/UserContainer";
 import Product from "./ApplicationComponent/Container/Product/ProductContainer";
 import DisplayProduct from "./ApplicationComponent/Container/Product/DisplayProductContainer";
 import Cart from "./ApplicationComponent/Container/Cart/CartContainer";
+import Checkout from "./ApplicationComponent/Container/Checkout/CheckoutContainer";
+import Copoun from "./ApplicationComponent/Container/Coupon/CouponContainer";
+import CouponHooks from "./ApplicationComponent/Components/Coupon/CouponComponentHooks";
 import "../App.css";
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";//hashrouter
 
@@ -32,6 +35,8 @@ export default class App extends React.Component{
                     <Route path="/display" exact component={DisplayProduct} />
                     <Route path="/cart" exact component={Cart} />
                     <Route path="/about" exact component={About} />
+                    <Route path="/coupon" exact component={CouponHooks} />
+                    <Route path="/checkout" exact component={Checkout} />
                     <Route path="/about/:id" component={About} />
                     <Route path="/" exact component={Home} />
                     <Route path="*" component={NotFound} />

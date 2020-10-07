@@ -166,3 +166,9 @@ export const getUserCart = (userid) => {
         })  
     }       
 }
+
+//coupon action
+export const addCoupon = (coupon) => ({        
+    type: ActionTypes.ADD_COUPON,
+    payload: coupon
+});
